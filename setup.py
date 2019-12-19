@@ -13,7 +13,7 @@ setuptools.setup(author='Chris Rosenthal',
                  keywords=['aws', 'batch', 's3', 'scons'],
                  license='GPLv3',
                  name='scons_batch',
-                 py_modules=['aws_batch'],
+                 py_modules=['scons_batch'],
                  version=0.1,
                  url='https://github.com/crosenth/scons_batch'
                  )
