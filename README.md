@@ -45,7 +45,8 @@ hello = env.Command(
 ```
 
 None of the values are required but both the queue and jobDefinition arguments
-must be defined at least at the Command level.  The verbosity argument is set
+must be defined at least at the Command level.  All arguments can be specified
+or overridden at the Command level.  The verbosity argument is set
 to 0 by default which will hide the full aws_batch action.
 
 ```
