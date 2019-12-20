@@ -6,6 +6,11 @@ Allows users to execute Actions using AWS Batch
 
 * Python 3.x
 
+As described in setup.py:
+
+* aws_batch>=0.6
+* scons>=3.1.1
+
 The awscli must also be available within the batch container.
 
 ## installation
@@ -29,10 +34,11 @@ env = aws_batch.Environment(
     jobDefinition='some_job_definition',
     memory=1028,
     queue='some_queue',
-    script_dir='bin',  # where custom scripts live
+    script_dir='bin',  # where any custom scripts live
     verbosity=0
     )
 ```
 
 None of the values are required but both the queue and jobDefinition arguments
-must be passed at least at the Command level.
+must be passed at least at the Command level.  The verbosity argument is set
+to 0 by default which will hide the full aws_batch action.
