@@ -1,6 +1,6 @@
 # AWS Batch SCons plugin
 
-Allows users to execute Actions using AWS Batch
+Allows users to execute SCons Actions using AWS Batch
 
 ## dependencies
 
