@@ -55,6 +55,7 @@ scons: Reading SConscript files ...
 scons: done reading SConscript files.
 scons: Building targets ...
 cat hello world > output/hello_world.txt
+scons: done building targets.
 ```
 
 With `verbosity=1`:
