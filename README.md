@@ -26,9 +26,9 @@ environment constructor values can be passed in addition to the
 aws_batch.Environment constructor values.
 
 ```
-import aws_batch
+import scons_batch
 
-env = aws_batch.Environment(
+env = scons_batch.Environment(
     bucket='s3://my_bucket/',
     cpu=2,
     jobDefinition='some_job_definition',
@@ -40,5 +40,5 @@ env = aws_batch.Environment(
 ```
 
 None of the values are required but both the queue and jobDefinition arguments
-must be passed at least at the Command level.  The verbosity argument is set
+must be defined at least at the Command level.  The verbosity argument is set
 to 0 by default which will hide the full aws_batch action.
