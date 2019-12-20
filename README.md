@@ -37,8 +37,39 @@ env = scons_batch.Environment(
     script_dir='bin',  # where any custom scripts live
     verbosity=0
     )
+
+hello = env.Command(
+   target='hello_world.txt',
+   source=None,
+   action='cat hello world > $TARGET')
 ```
 
 None of the values are required but both the queue and jobDefinition arguments
 must be defined at least at the Command level.  The verbosity argument is set
 to 0 by default which will hide the full aws_batch action.
+
+```
+scons
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+cat hello world > output/hello_world.txt
+```
+
+With `verbosity=1`:
+
+```
+scons
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+aws_batch --job-queue some-queue --bucket s3://my_bucket/ --command "cat hello world > hello_world.txt" --downloads hello_world.txt -v some_job_definition
+Found credentials in shared credentials file: ~/.aws/credentials
+mkdir -p tmp; cd tmp; cat hello world > hello_world.txt; /home/ec2-user/miniconda/bin/aws s3 cp --only-show-errors hello_world.txt s3://my_bucket/hello_world.txt
+SUBMITTED
+RUNNABLE
+STARTING
+SUCCEEDED
+download: s3://my_bucket/hello_world.txt to hello_world.txt
+scons: done building targets.
+```
