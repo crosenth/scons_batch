@@ -49,7 +49,7 @@ class Environment(SCons.Environment.Environment):
                 jobDefinition=None,
                 queue=None,
                 bucket=None,
-                verbosity=1,
+                verbosity=0,
                 **kw):
         bucket = bucket or self.bucket
         cpus = cpus or self.cpus
