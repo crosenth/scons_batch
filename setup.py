@@ -14,6 +14,6 @@ setuptools.setup(author='Chris Rosenthal',
                  license='GPLv3',
                  name='scons_batch',
                  py_modules=['scons_batch'],
-                 version=0.1,
+                 version=0.2,
                  url='https://github.com/crosenth/scons_batch'
                  )

@@ -31,7 +31,7 @@ class Environment(SCons.Environment.Environment):
         self.jobDefinition = jobDefinition
         self.memory = memory
         self.queue = queue
-        if os.path.isdir(script_dir):
+        if script_dir and os.path.isdir(script_dir):
             self.script_dir = script_dir
             self.scripts = os.listdir(script_dir)
         else:
