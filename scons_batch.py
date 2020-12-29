@@ -34,6 +34,9 @@ class Environment(SCons.Environment.Environment):
         if os.path.isdir(script_dir):
             self.script_dir = script_dir
             self.scripts = os.listdir(script_dir)
+        else:
+            self.script_dir = None
+            self.scripts = []
         self.verbosity = verbosity
         SCons.Environment.Environment.__init__(self, **kwargs)
 
@@ -46,7 +49,7 @@ class Environment(SCons.Environment.Environment):
                 jobDefinition=None,
                 queue=None,
                 bucket=None,
-                verbosity=1,
+                verbosity=0,
                 **kw):
         bucket = bucket or self.bucket
         cpus = cpus or self.cpus
@@ -95,6 +98,7 @@ class Environment(SCons.Environment.Environment):
             if verbosity:
                 batch.append('-' + 'v' * verbosity)
             batch.append(jobDefinition)
+            batch = (str(i) for i in batch)
             batch_actions.append(_BatchAction(a, ' '.join(batch), verbosity))
         return SCons.Environment.Environment.Command(
             self, target, source, batch_actions, **kw)

@@ -41,7 +41,7 @@ env = scons_batch.Environment(
 hello = env.Command(
    target='hello_world.txt',
    source=None,
-   action='cat hello world > $TARGET')
+   action='echo hello world > $TARGET')
 ```
 
 None of the values are required but both the queue and jobDefinition arguments
@@ -54,7 +54,7 @@ scons
 scons: Reading SConscript files ...
 scons: done reading SConscript files.
 scons: Building targets ...
-cat hello world > output/hello_world.txt
+echo hello world > output/hello_world.txt
 scons: done building targets.
 ```
 
