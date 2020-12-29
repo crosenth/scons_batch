@@ -32,7 +32,7 @@ env = scons_batch.Environment(
     bucket='s3://my_bucket/',
     cpu=2,
     jobDefinition='some_job_definition',
-    memory=1028,
+    memory=1,  # gigabytes
     queue='some_queue',
     script_dir='bin',  # where any custom scripts live
     verbosity=0
@@ -65,9 +65,9 @@ scons
 scons: Reading SConscript files ...
 scons: done reading SConscript files.
 scons: Building targets ...
-aws_batch --job-queue some-queue --bucket s3://my_bucket/ --command "cat hello world > hello_world.txt" --downloads hello_world.txt -v some_job_definition
+aws_batch --job-queue some-queue --bucket s3://my_bucket/ --command "echo hello world > hello_world.txt" --downloads hello_world.txt -v some_job_definition
 Found credentials in shared credentials file: ~/.aws/credentials
-mkdir -p tmp; cd tmp; cat hello world > hello_world.txt; /home/ec2-user/miniconda/bin/aws s3 cp --only-show-errors hello_world.txt s3://my_bucket/hello_world.txt
+mkdir -p tmp; cd tmp; echo hello world > hello_world.txt; /home/ec2-user/miniconda/bin/aws s3 cp --only-show-errors hello_world.txt s3://my_bucket/hello_world.txt
 SUBMITTED
 RUNNABLE
 STARTING
